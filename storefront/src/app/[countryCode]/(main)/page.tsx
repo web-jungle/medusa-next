@@ -1,8 +1,10 @@
 import { Metadata } from "next"
 
+import { listCollections, retrieveCollection } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import { getHomePagePosts } from "@lib/mdx"
 import FeaturedArticles from "@modules/home/components/featured-articles"
+import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
 import QualityCommitment from "@modules/home/components/quality-commitment"
 import ReviewCarousel from "@modules/home/components/review-carousel"
@@ -26,22 +28,22 @@ export default async function Home(props: {
   const featuredArticles = getHomePagePosts()
 
   // Récupérer uniquement la collection spécifique demandée
-  // const collection = await retrieveCollection("pcol_01JPHX59NYZVMBCQ45HMQQ9A5G")
+  const collection = await retrieveCollection("pcol_01JPHX59NYZVMBCQ45HMQQ9A5G")
 
-  // let collections = []
-  // if (collection) {
-  //   collections = [collection]
-  // } else {
-  //   const { collections: allCollections } = await listCollections({
-  //     fields: "id, handle, title",
-  //   })
-  //   collections = allCollections
-  // }
+  let collections = []
+  if (collection) {
+    collections = [collection]
+  } else {
+    const { collections: allCollections } = await listCollections({
+      fields: "id, handle, title",
+    })
+    collections = allCollections
+  }
 
-  // if (!collections.length || !region) {
-  //   return null
-  // }
-  // const isHome = true
+  if (!collections.length || !region) {
+    return null
+  }
+  const isHome = true
 
   return (
     <div className="bg-zen-bg min-h-screen">
@@ -50,13 +52,13 @@ export default async function Home(props: {
         <h2 className="text-2xl text-zen-textDark font-medium text-center ">
           Articles les plus vendus
         </h2>
-        {/* <ul className="flex flex-col gap-x-6">
+        <ul className="flex flex-col gap-x-6">
           <FeaturedProducts
             collections={collections}
             region={region}
             isHome={isHome}
           />
-        </ul> */}
+        </ul>
       </div>
 
       {/* Section des engagements qualité */}
