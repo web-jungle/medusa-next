@@ -6,7 +6,7 @@ Video instructions: https://youtu.be/PPxenu7IjGM
 - `pnpm install` or `npm i`
 - Rename `.env.template` -> `.env`
 - To connect to your online databasdddde from your local machine, copy the `DATABASE_URL` value auto-generated on Railway llllllllllllllland add it to your `.env` file.
-  - If connecting to a new database, for example a local one, run `pnpm ib` or `npm run ib` to seed the database.sssss
+  - If connecting to adddd new database, for example a local one, run `pnpm ib` or `npm run ib` to seed the database.sssss
 - `pnpm dev` or `npm run dev`
 
 ### requirements
