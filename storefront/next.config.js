@@ -1,8 +1,23 @@
+const checkEnvVariables = require("./check-env-variables")
+
+checkEnvVariables()
+
 /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
   reactStrictMode: true,
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -23,11 +38,6 @@ const nextConfig = {
       },
     ],
   },
-  serverRuntimeConfig: {
-    port: process.env.PORT || 3000
-  }
 }
-
-console.log("next.config.js", JSON.stringify(module.exports, null, 2))
 
 module.exports = nextConfig

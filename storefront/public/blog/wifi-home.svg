@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arrière-plan -->
+  <rect width="800" height="500" fill="#F9FAF9"/>
+  
+  <!-- Maison stylisée -->
+  <path d="M200 300 L400 150 L600 300 L600 450 L200 450 Z" fill="#E6F2E9" stroke="#7EB88F" stroke-width="3"/>
+  <rect x="350" y="350" width="100" height="100" fill="#A4D7B3"/>
+  
+  <!-- Fenêtres -->
+  <rect x="250" y="350" width="60" height="60" fill="#FFFFFF" stroke="#7EB88F" stroke-width="2"/>
+  <rect x="490" y="350" width="60" height="60" fill="#FFFFFF" stroke="#7EB88F" stroke-width="2"/>
+  <rect x="250" y="250" width="60" height="60" fill="#FFFFFF" stroke="#7EB88F" stroke-width="2"/>
+  <rect x="490" y="250" width="60" height="60" fill="#FFFFFF" stroke="#7EB88F" stroke-width="2"/>
+  
+  <!-- Routeur WiFi -->
+  <rect x="370" y="250" width="60" height="40" rx="5" fill="#7EB88F"/>
+  <line x1="390" y1="230" x2="390" y2="250" stroke="#7EB88F" stroke-width="2"/>
+  <line x1="400" y1="220" x2="400" y2="250" stroke="#7EB88F" stroke-width="2"/>
+  <line x1="410" y1="230" x2="410" y2="250" stroke="#7EB88F" stroke-width="2"/>
+  
+  <!-- Ondes WiFi -->
+  <path d="M400 230 C360 200 310 200 270 230" stroke="#A4D7B3" stroke-width="2" stroke-dasharray="5 3" fill="none"/>
+  <path d="M400 230 C440 200 490 200 530 230" stroke="#A4D7B3" stroke-width="2" stroke-dasharray="5 3" fill="none"/>
+  <path d="M400 230 C340 180 260 180 200 230" stroke="#A4D7B3" stroke-width="2" stroke-dasharray="5 3" fill="none"/>
+  <path d="M400 230 C460 180 540 180 600 230" stroke="#A4D7B3" stroke-width="2" stroke-dasharray="5 3" fill="none"/>
+  
+  <!-- Appareils connectés -->
+  <!-- Smartphone -->
+  <rect x="270" y="380" width="20" height="30" rx="3" fill="#7EB88F"/>
+  <path d="M280 380 C270 350 270 350 280 350" stroke="#A4D7B3" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+  
+  <!-- Ordinateur portable -->
+  <rect x="490" y="380" width="40" height="25" rx="3" fill="#7EB88F"/>
+  <rect x="490" y="405" width="40" height="5" rx="1" fill="#7EB88F"/>
+  <path d="M510 380 C510 350 510 350 400 250" stroke="#A4D7B3" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+  
+  <!-- Tablette -->
+  <rect x="290" y="270" width="30" height="20" rx="2" fill="#7EB88F"/>
+  <path d="M305 270 C305 250 350 235 400 250" stroke="#A4D7B3" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+  
+  <!-- Texte -->
+  <text x="400" y="480" font-family="Arial, sans-serif" font-size="24" fill="#7EB88F" text-anchor="middle">CRÉER UN ENVIRONNEMENT WIFI SAIN</text>
+</svg> 

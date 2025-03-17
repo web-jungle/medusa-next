@@ -3,22 +3,20 @@ import { notFound } from "next/navigation"
 
 import AddressBook from "@modules/account/components/address-book"
 
-import { headers } from "next/headers"
+import { retrieveCustomer } from "@lib/data/customer"
 import { getRegion } from "@lib/data/regions"
-import { getCustomer } from "@lib/data/customer"
 
 export const metadata: Metadata = {
-  title: "Addresses",
-  description: "View your addresses",
+  title: "Adresses | Protection Zen",
+  description: "Gérez vos adresses de livraison",
 }
 
-export default async function Addresses({
-  params,
-}: {
-  params: { countryCode: string }
+export default async function Addresses(props: {
+  params: Promise<{ countryCode: string }>
 }) {
+  const params = await props.params
   const { countryCode } = params
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
   const region = await getRegion(countryCode)
 
   if (!customer || !region) {
@@ -28,10 +26,11 @@ export default async function Addresses({
   return (
     <div className="w-full" data-testid="addresses-page-wrapper">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Shipping Addresses</h1>
+        <h1 className="text-2xl-semi">Adresses de livraison</h1>
         <p className="text-base-regular">
-          View and update your shipping addresses, you can add as many as you
-          like. Saving your addresses will make them available during checkout.
+          Consultez et mettez à jour vos adresses de livraison, vous pouvez en
+          ajouter autant que vous le souhaitez. L'enregistrement de vos adresses
+          les rendra disponibles lors du paiement.
         </p>
       </div>
       <AddressBook customer={customer} region={region} />

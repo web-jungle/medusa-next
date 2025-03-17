@@ -4,19 +4,18 @@ import ProfilePhone from "@modules/account//components/profile-phone"
 import ProfileBillingAddress from "@modules/account/components/profile-billing-address"
 import ProfileEmail from "@modules/account/components/profile-email"
 import ProfileName from "@modules/account/components/profile-name"
-import ProfilePassword from "@modules/account/components/profile-password"
 
-import { notFound } from "next/navigation"
+import { retrieveCustomer } from "@lib/data/customer"
 import { listRegions } from "@lib/data/regions"
-import { getCustomer } from "@lib/data/customer"
+import { notFound } from "next/navigation"
 
 export const metadata: Metadata = {
-  title: "Profile",
-  description: "View and edit your Medusa Store profile.",
+  title: "Profil | Protection Zen",
+  description: "Consultez et modifiez votre profil Protection Zen.",
 }
 
 export default async function Profile() {
-  const customer = await getCustomer()
+  const customer = await retrieveCustomer()
   const regions = await listRegions()
 
   if (!customer || !regions) {
@@ -26,11 +25,12 @@ export default async function Profile() {
   return (
     <div className="w-full" data-testid="profile-page-wrapper">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Profile</h1>
+        <h1 className="text-2xl-semi">Profil</h1>
         <p className="text-base-regular">
-          View and update your profile information, including your name, email,
-          and phone number. You can also update your billing address, or change
-          your password.
+          Consultez et mettez à jour vos informations personnelles, y compris
+          votre nom, votre email et votre numéro de téléphone. Vous pouvez
+          également modifier votre adresse de facturation ou changer votre mot
+          de passe.
         </p>
       </div>
       <div className="flex flex-col gap-y-8 w-full">
@@ -40,8 +40,8 @@ export default async function Profile() {
         <Divider />
         <ProfilePhone customer={customer} />
         <Divider />
-        <ProfilePassword customer={customer} />
-        <Divider />
+        {/* <ProfilePassword customer={customer} />
+        <Divider /> */}
         <ProfileBillingAddress customer={customer} regions={regions} />
       </div>
     </div>
@@ -51,3 +51,4 @@ export default async function Profile() {
 const Divider = () => {
   return <div className="w-full h-px bg-gray-200" />
 }
+;``

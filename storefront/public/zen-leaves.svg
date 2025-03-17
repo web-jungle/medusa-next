@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.7">
+    <!-- Première feuille -->
+    <path d="M128 40C88 80 88 160 128 200" stroke="#A4D7B3" stroke-width="4" stroke-linecap="round"/>
+    <path d="M128 40C168 80 168 160 128 200" stroke="#A4D7B3" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Deuxième feuille (plus petite, décalée) -->
+    <path d="M88 80C60 108 60 164 88 192" stroke="#7EB88F" stroke-width="4" stroke-linecap="round"/>
+    <path d="M88 80C116 108 116 164 88 192" stroke="#7EB88F" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Troisième feuille (plus petite, de l'autre côté) -->
+    <path d="M168 80C140 108 140 164 168 192" stroke="#A4D7B3" stroke-width="4" stroke-linecap="round"/>
+    <path d="M168 80C196 108 196 164 168 192" stroke="#A4D7B3" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Petite branche -->
+    <line x1="128" y1="200" x2="128" y2="230" stroke="#7EB88F" stroke-width="4" stroke-linecap="round"/>
+    <line x1="88" y1="192" x2="88" y2="210" stroke="#7EB88F" stroke-width="3" stroke-linecap="round"/>
+    <line x1="168" y1="192" x2="168" y2="210" stroke="#7EB88F" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg> 

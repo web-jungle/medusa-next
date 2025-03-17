@@ -1,32 +1,54 @@
-import { Github } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
+import Image from "next/image"
 
 const Hero = () => {
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
+    <div className="h-[85vh] w-full border-b border-zen-green relative bg-zen-bg overflow-hidden">
+      {/* Image d'arrière-plan avec Next.js Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/onde.jpg"
+          alt="Arrière-plan zen"
+          fill
+          className="object-cover opacity-50"
+          priority
+        />
+      </div>
+
       <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
+        <div className="flex flex-col items-center justify-center mt-4">
+          <Image
+            src={"./logo-zen.svg"}
+            alt="logo zen"
+            width={150}
+            height={150}
+          />
+        </div>
         <span>
           <Heading
             level="h1"
-            className="text-3xl leading-10 text-ui-fg-base font-normal"
+            className="text-4xl sm:text-5xl md:text-9xl leading-tight text-zen-bordeaux font-extrabold font-mangro tracking-wide"
           >
-            Well done! You have successfully deployed your Medusa 2.0 store on Railway!
+            Protection Anti-Ondes
           </Heading>
           <Heading
             level="h2"
-            className="text-3xl leading-10 text-ui-fg-subtle font-normal"
+            className="text-2xl sm:text-3xl md:text-5xl leading-normal text-zen-navy font-normal mt-4"
           >
-            Need help customizing your store?
+            Des vêtements qui vous protègent des radiations électromagnétiques
           </Heading>
+          <p className="mt-6 text-zen-bordeaux md:text-2xl  mx-auto">
+            Notre collection de vêtements innovants vous offre une protection
+            contre les ondes 5G, WiFi et autres rayonnements électromagnétiques,
+            pour un mode de vie plus sain et équilibré.
+          </p>
         </span>
-        <a
-          href="https://funkyton.com/medusajs-2-0-is-finally-here/"
-          target="_blank"
+        <Button
+          variant="secondary"
+          className="bg-zen-bordeaux hover:bg-zen-charcoal text-white border-none mt-6"
         >
-          <h1 style={{ textDecoration: "underline" }}>
-            Visit the tutorial
-          </h1>
-        </a>
+          Découvrir nos produits
+        </Button>
       </div>
     </div>
   )

@@ -1,0 +1,138 @@
+---
+title: "WiFi et maison: comment créer un environnement sain"
+description: "Découvrez comment réduire l'impact des ondes WiFi chez vous tout en conservant une connexion efficace avec nos conseils et solutions de protection."
+date: "2025-02-15"
+author: "Pierre Lefort"
+image: "/blog/wifi-home.jpg"
+tags: ["WiFi", "Maison", "Santé", "Électrosensibilité"]
+onHomePage: true
+---
+
+# WiFi et maison: comment créer un environnement sain
+
+Aujourd'hui, le WiFi est devenu omniprésent dans nos maisons. Entre nos ordinateurs, téléphones, montres connectées, téléviseurs, enceintes intelligentes et même nos réfrigérateurs, nous sommes constamment entourés d'ondes électromagnétiques. Comment concilier confort technologique et santé? Découvrons ensemble les meilleures pratiques pour créer un habitat plus sain.
+
+## Pourquoi s'inquiéter des ondes WiFi?
+
+<Info>
+  L'Organisation Mondiale de la Santé (OMS) a classé les champs
+  électromagnétiques de radiofréquence comme "peut-être cancérogènes pour
+  l'homme" (Groupe 2B) dès 2011.
+</Info>
+
+Bien que le débat scientifique se poursuive sur l'impact exact des ondes WiFi sur notre santé, de nombreuses personnes rapportent des symptômes liés à l'électrosensibilité:
+
+- Fatigue chronique
+- Troubles du sommeil
+- Maux de tête
+- Difficultés de concentration
+- Irritabilité
+
+## Cartographier les ondes dans votre maison
+
+Pour mieux comprendre l'exposition aux ondes dans votre logement, vous pouvez réaliser une cartographie simple:
+
+```jsx
+function WifiMapExample() {
+  const [intensity, setIntensity] = useState({
+    livingRoom: "Élevée",
+    bedroom: "Moyenne",
+    kitchen: "Élevée",
+    bathroom: "Faible",
+  })
+
+  return (
+    <div className="home-map">
+      {Object.entries(intensity).map(([room, level]) => (
+        <RoomDisplay
+          key={room}
+          name={room}
+          intensity={level}
+          recommendations={getRecommendations(level)}
+        />
+      ))}
+    </div>
+  )
+}
+```
+
+Ce composant React illustre comment vous pourriez visualiser l'intensité des ondes dans différentes pièces de votre maison à l'aide d'un appareil de mesure (disponible en prêt dans certaines associations).
+
+### Zones critiques à surveiller
+
+| Zone              | Risque        | Recommandation                                  |
+| ----------------- | ------------- | ----------------------------------------------- |
+| Chambre à coucher | Élevé         | Coupure totale du WiFi la nuit                  |
+| Bureau            | Moyen à élevé | Connexion filaire et vêtements protecteurs      |
+| Salon             | Moyen         | Éloignement des routeurs des zones de repos     |
+| Chambre d'enfant  | Très élevé    | Protection maximale et limitation des appareils |
+
+## Solutions efficaces pour réduire l'exposition
+
+<Image
+  src="/blog/wifi-protection.jpg"
+  alt="Solutions de protection contre les ondes WiFi"
+  width={800}
+  height={500}
+/>
+
+### 1. Optimiser votre installation WiFi
+
+Contrairement aux idées reçues, un bon routeur placé stratégiquement peut réduire votre exposition globale:
+
+```jsx
+// Exemple de positionnement optimal
+const RouterPlacement = () => (
+  <OptimalPlacement
+    height="2m"
+    centralPosition={false}
+    awayFromBedrooms={true}
+    powerLevel="adaptative"
+  />
+)
+```
+
+Ce code conceptuel montre les paramètres idéaux pour le placement d'un routeur WiFi:
+
+- Hauteur minimale de 2 mètres
+- Position non centrale (éviter le milieu de l'habitation)
+- Éloignement des chambres
+- Puissance adaptative (qui s'ajuste selon les besoins)
+
+### 2. Créer des zones blanches
+
+Désigner certaines zones de votre maison comme "sans ondes" peut vous offrir des espaces de récupération:
+
+1. **La chambre à coucher**: Idéalement sans aucun appareil électronique
+2. **Un coin lecture/détente**: Parfait pour se ressourcer
+3. **L'espace repas**: Pour des moments de convivialité sans distractions
+
+<Alert>
+  Les enfants sont particulièrement vulnérables aux ondes électromagnétiques en
+  raison de leur crâne plus fin et de leur système nerveux en développement.
+</Alert>
+
+### 3. Nos solutions textiles pour votre intérieur
+
+Notre gamme "Maison Zen" propose plusieurs solutions pour réduire les ondes WiFi chez vous:
+
+- **Rideaux anti-ondes**: Parfaits pour les fenêtres donnant sur des antennes-relais
+- **Baldaquins de lit**: Pour un sommeil protégé des interférences
+- **Housses pour box internet**: Permettent de réduire les émissions tout en maintenant la connexion
+
+> "Un environnement sain n'est pas nécessairement un environnement sans technologie, mais un environnement où la technologie est utilisée de manière consciente et raisonnée." — Pierre Lefort
+
+## Établir une routine numérique saine
+
+Voici quelques habitudes à adopter pour réduire votre exposition:
+
+1. **Timer sur votre box internet**: Programmez-la pour qu'elle s'éteigne automatiquement la nuit
+2. **Mode avion automatique**: Sur vos appareils mobiles pendant la nuit
+3. **Plages horaires sans écrans**: Instaurez des moments dédiés à la déconnexion
+4. **Vêtements protecteurs**: Portez nos t-shirts et sous-vêtements anti-ondes lors des périodes d'exposition prolongée
+
+## Conclusion
+
+Vivre avec le WiFi tout en préservant sa santé n'est pas contradictoire si l'on adopte les bons réflexes et équipements. Nos vêtements et solutions textiles anti-ondes vous accompagnent dans cette démarche de protection sans vous priver des avantages de la technologie moderne.
+
+Découvrez notre gamme complète de produits Protection Zen spécialement conçus pour votre habitat et votre bien-être quotidien.

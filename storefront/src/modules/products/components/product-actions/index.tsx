@@ -1,18 +1,16 @@
 "use client"
 
+import { addToCart } from "@lib/data/cart"
+import { useIntersection } from "@lib/hooks/use-in-view"
+import { HttpTypes } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
+import Divider from "@modules/common/components/divider"
+import OptionSelect from "@modules/products/components/product-actions/option-select"
 import { isEqual } from "lodash"
 import { useParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
-
-import { useIntersection } from "@lib/hooks/use-in-view"
-import Divider from "@modules/common/components/divider"
-import OptionSelect from "@modules/products/components/product-actions/option-select"
-
-import MobileActions from "./mobile-actions"
 import ProductPrice from "../product-price"
-import { addToCart } from "@lib/data/cart"
-import { HttpTypes } from "@medusajs/types"
+import MobileActions from "./mobile-actions"
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct
@@ -20,16 +18,17 @@ type ProductActionsProps = {
   disabled?: boolean
 }
 
-const optionsAsKeymap = (variantOptions: any) => {
+const optionsAsKeymap = (
+  variantOptions: HttpTypes.StoreProductVariant["options"]
+) => {
   return variantOptions?.reduce((acc: Record<string, string>, varopt: any) => {
-    acc[varopt.option.title] = varopt.value
+    acc[varopt.option_id] = varopt.value
     return acc
   }, {})
 }
 
 export default function ProductActions({
   product,
-  region,
   disabled,
 }: ProductActionsProps) {
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
@@ -56,12 +55,20 @@ export default function ProductActions({
   }, [product.variants, options])
 
   // update the options when a variant is selected
-  const setOptionValue = (title: string, value: string) => {
+  const setOptionValue = (optionId: string, value: string) => {
     setOptions((prev) => ({
       ...prev,
-      [title]: value,
+      [optionId]: value,
     }))
   }
+
+  //check if the selected options produce a valid variant
+  const isValidVariant = useMemo(() => {
+    return product.variants?.some((v) => {
+      const variantOptions = optionsAsKeymap(v.options)
+      return isEqual(variantOptions, options)
+    })
+  }, [product.variants, options])
 
   // check if the selected variant is in stock
   const inStock = useMemo(() => {
@@ -71,18 +78,17 @@ export default function ProductActions({
     }
 
     // If we allow back orders on the variant, we can add to cart
-    if (selectedVariant && selectedVariant.allow_backorder) {
+    if (selectedVariant?.allow_backorder) {
       return true
     }
 
-    // TODO: Add inventory checks with the new v2 setup
-    // // If there is inventory available, we can add to cart
-    // if (
-    //   selectedVariant?.inventory_quantity &&
-    //   selectedVariant.inventory_quantity > 0
-    // ) {
-    //   return true
-    // }
+    // If there is inventory available, we can add to cart
+    if (
+      selectedVariant?.manage_inventory &&
+      (selectedVariant?.inventory_quantity || 0) > 0
+    ) {
+      return true
+    }
 
     // Otherwise, we can't add to cart
     return false
@@ -118,7 +124,7 @@ export default function ProductActions({
                   <div key={option.id}>
                     <OptionSelect
                       option={option}
-                      current={options[option.title ?? ""]}
+                      current={options[option.id]}
                       updateOption={setOptionValue}
                       title={option.title ?? ""}
                       data-testid="product-options"
@@ -136,17 +142,23 @@ export default function ProductActions({
 
         <Button
           onClick={handleAddToCart}
-          disabled={!inStock || !selectedVariant || !!disabled || isAdding}
+          disabled={
+            !inStock ||
+            !selectedVariant ||
+            !!disabled ||
+            isAdding ||
+            !isValidVariant
+          }
           variant="primary"
           className="w-full h-10"
           isLoading={isAdding}
           data-testid="add-product-button"
         >
-          {!selectedVariant
-            ? "Select variant"
-            : !inStock
-            ? "Out of stock"
-            : "Add to cart"}
+          {!selectedVariant && !options
+            ? "Sélectionner une variante"
+            : !inStock || !isValidVariant
+            ? "Rupture de stock"
+            : "Ajouter au panier"}
         </Button>
         <MobileActions
           product={product}

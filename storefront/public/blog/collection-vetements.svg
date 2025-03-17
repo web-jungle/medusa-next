@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arrière-plan -->
+  <rect width="800" height="500" fill="#F9FAF9"/>
+  
+  <!-- T-shirt -->
+  <path d="M180 150 L140 180 L140 320 L220 320 L220 180 L180 150 Z" fill="#E6F2E9" stroke="#7EB88F" stroke-width="2"/>
+  <path d="M180 150 L200 170 L160 180 M180 150 L160 170 L200 180" stroke="#A4D7B3" stroke-width="1"/>
+  <circle cx="180" cy="250" r="30" stroke="#A4D7B3" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+  
+  <!-- Pantalon -->
+  <path d="M330 150 L290 170 L290 350 L310 350 L310 250 L350 250 L350 350 L370 350 L370 170 L330 150 Z" fill="#E6F2E9" stroke="#7EB88F" stroke-width="2"/>
+  <path d="M330 200 C310 200 310 200 310 220" stroke="#A4D7B3" stroke-width="1"/>
+  <path d="M330 200 C350 200 350 200 350 220" stroke="#A4D7B3" stroke-width="1"/>
+  <circle cx="330" cy="200" r="20" stroke="#A4D7B3" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+  
+  <!-- Bonnet -->
+  <path d="M500 150 C460 150 460 200 500 200 C540 200 540 150 500 150 Z" fill="#E6F2E9" stroke="#7EB88F" stroke-width="2"/>
+  <ellipse cx="500" cy="200" rx="30" ry="10" fill="#E6F2E9" stroke="#7EB88F" stroke-width="2"/>
+  <circle cx="500" cy="175" r="15" stroke="#A4D7B3" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+  
+  <!-- Gilet -->
+  <path d="M650 150 L620 180 L620 300 L680 300 L680 180 L650 150 Z" fill="#E6F2E9" stroke="#7EB88F" stroke-width="2"/>
+  <path d="M650 150 L650 300" stroke="#7EB88F" stroke-width="2"/>
+  <ellipse cx="650" cy="200" rx="8" ry="4" fill="#7EB88F"/>
+  <ellipse cx="650" cy="220" rx="8" ry="4" fill="#7EB88F"/>
+  <ellipse cx="650" cy="240" rx="8" ry="4" fill="#7EB88F"/>
+  <circle cx="650" cy="225" r="25" stroke="#A4D7B3" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+  
+  <!-- Étiquettes de fonctionnalités -->
+  <rect x="140" y="340" width="80" height="30" rx="15" fill="#A4D7B3"/>
+  <text x="180" y="360" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Anti-5G</text>
+  
+  <rect x="290" y="370" width="80" height="30" rx="15" fill="#A4D7B3"/>
+  <text x="330" y="390" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Anti-WiFi</text>
+  
+  <rect x="460" y="220" width="80" height="30" rx="15" fill="#A4D7B3"/>
+  <text x="500" y="240" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Anti-ondes</text>
+  
+  <rect x="610" y="320" width="80" height="30" rx="15" fill="#A4D7B3"/>
+  <text x="650" y="340" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Protection+</text>
+  
+  <!-- Légende des matériaux -->
+  <rect x="200" y="400" width="400" height="60" rx="10" fill="#E6F2E9" stroke="#7EB88F" stroke-width="2"/>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="18" fill="#7EB88F" text-anchor="middle">
+    TISSUS AVEC FIBRES D'ARGENT - PROTECTION 99.9%
+  </text>
+  
+  <!-- Icône de bouclier -->
+  <path d="M400 50 C380 70 380 100 400 120 C420 100 420 70 400 50 Z" fill="#A4D7B3" stroke="#7EB88F" stroke-width="2"/>
+  <text x="400" y="90" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">PROTECT</text>
+</svg> 

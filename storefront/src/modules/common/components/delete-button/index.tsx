@@ -33,7 +33,7 @@ const DeleteButton = ({
         onClick={() => handleDelete(id)}
       >
         {isDeleting ? <Spinner className="animate-spin" /> : <Trash />}
-        <span>{children}</span>
+        <span>{children || "Supprimer"}</span>
       </button>
     </div>
   )

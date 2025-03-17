@@ -21,6 +21,21 @@ module.exports = {
         padding: "padding-top padding-right padding-bottom padding-left",
       },
       colors: {
+        zen: {
+          white: "#FFFFFF",
+          lightGreen: "#E6F2E9",
+          green: "#A4D7B3",
+          darkGreen: "#2E8B57",
+          bg: "#F9FAF9",
+          offWhite: "#F5F7F5",
+          textDark: "#1F362B",
+          textMedium: "#4B5563",
+          accent: "#1D7F4C",
+          bordeaux: "#6D213A",
+          navy: "#173753",
+          earth: "#59422E",
+          charcoal: "#2A2A2A",
+        },
         grey: {
           0: "#FFFFFF",
           5: "#F9FAFB",
@@ -69,6 +84,9 @@ module.exports = {
           "Ubuntu",
           "sans-serif",
         ],
+        montserrat: ["Montserrat", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        mangro: ["Mangro", "sans-serif"],
       },
       keyframes: {
         ring: {

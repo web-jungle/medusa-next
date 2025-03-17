@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arrière-plan -->
+  <rect width="800" height="500" fill="#F9FAF9"/>
+  
+  <!-- Antenne 5G stylisée -->
+  <rect x="100" y="100" width="20" height="300" fill="#7EB88F"/>
+  <path d="M110 100 L180 50 L180 350 L110 400 Z" fill="#A4D7B3" opacity="0.7"/>
+  <path d="M110 100 L40 50 L40 350 L110 400 Z" fill="#A4D7B3" opacity="0.7"/>
+  
+  <!-- Ondes électromagnétiques -->
+  <circle cx="110" cy="100" r="10" fill="#7EB88F"/>
+  <circle cx="110" cy="100" r="30" stroke="#7EB88F" stroke-width="2" stroke-dasharray="5 3" fill="none"/>
+  <circle cx="110" cy="100" r="60" stroke="#7EB88F" stroke-width="2" stroke-dasharray="5 3" fill="none"/>
+  <circle cx="110" cy="100" r="90" stroke="#7EB88F" stroke-width="2" stroke-dasharray="5 3" fill="none"/>
+  
+  <!-- Silhouette humaine protégée -->
+  <path d="M600 150 C580 150 570 170 570 190 C570 210 580 220 600 220 C620 220 630 210 630 190 C630 170 620 150 600 150 Z" fill="#E6F2E9"/>
+  <path d="M600 220 L600 350 M580 230 L570 350 M620 230 L630 350 M570 260 L630 260" stroke="#E6F2E9" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Bouclier de protection -->
+  <path d="M450 200 C450 300 600 350 600 350 C600 350 750 300 750 200 C750 180 750 150 750 150 L600 100 L450 150 C450 150 450 180 450 200 Z" fill="none" stroke="#7EB88F" stroke-width="3"/>
+  <path d="M480 200 C480 280 600 320 600 320 C600 320 720 280 720 200 C720 185 720 165 720 165 L600 125 L480 165 C480 165 480 185 480 200 Z" fill="#E6F2E9" opacity="0.7"/>
+  
+  <!-- Texte -->
+  <text x="400" y="450" font-family="Arial, sans-serif" font-size="24" fill="#7EB88F" text-anchor="middle">PROTECTION EFFICACE CONTRE LES ONDES 5G</text>
+</svg> 
