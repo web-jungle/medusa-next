@@ -1,36 +1,19 @@
 <p align="center">
   <a href="https://www.medusajs.com">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/59018053/229103275-b5e482bb-4601-46e6-8142-244f531cebdb.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-      <img alt="Medusa logo" src="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg" width=100>
-    </picture>
-  </a>
-  <a href="https://railway.app/template/gkU-27?referralCode=-Yg50p">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://railway.app/brand/logo-light.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://railway.app/brand/logo-dark.svg">
-      <img alt="Railway logo" src="https://railway.app/brand/logo-light.svg" width=100>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/59018053/229103275-b5e482bb-4601-46e6-8142-244f531cebdb.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
+    <img alt="Medusa logo" src="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
     </picture>
   </a>
 </p>
 
-<h2 align="center">
-  Prebaked medusajs 2.0 monorepo (backend + postgres + redis + +storefront)<br>
-  <a href="https://railway.app/template/gkU-27?referralCode=-Yg50p">one-click deploy on railway!</a>
-</h2>
-
 <h1 align="center">
-  Need help?<br>
-  <a href="https://funkyton.com/medusajs-2-0-is-finally-here/">Step by step deploy guide, and video instructions</a>
+  Medusa Next.js Starter Template
 </h1>
 
-
-
-
-
 <p align="center">
-Combine Medusa's modules for your commerce backend with the newest Next.js 14 features for a performant storefront.</p>
+Combine Medusa's modules for your commerce backend with the newest Next.js 15 features for a performant storefront.</p>
 
 <p align="center">
   <a href="https://github.com/medusajs/medusa/blob/master/CONTRIBUTING.md">
@@ -44,50 +27,99 @@ Combine Medusa's modules for your commerce backend with the newest Next.js 14 fe
   </a>
 </p>
 
-## About this boilerplate
-This boilerplate is a monorepo consisting of snapshot of newly released medusajs 2.0 (preview) backend and storefront app created with `npx create-medusa-app@preview` July 2024. Modified to be plug n' play deployable on [railway.app](https://railway.app?referralCode=-Yg50p)!
+### Prerequisites
 
-Updated: to `version 2.0.5`
+To use the [Next.js Starter Template](https://medusajs.com/nextjs-commerce/), you should have a Medusa server running locally on port 9000.
+For a quick setup, run:
 
-# /backend
+```shell
+npx create-medusa-app@latest
+```
 
-### railway setup
-Please change the value of environtment variables: `COOCKIE_SECRET` and `JWT_SECRET`.
+Check out [create-medusa-app docs](https://docs.medusajs.com/learn/installation) for more details and troubleshooting.
 
-### local setup
-Video instructions: https://youtu.be/PPxenu7IjGM
+# Overview
 
-- Install dependencies `npm i` or `yarn`
-- Rename `.env.template` ->  `.env`
-- To connect to your online database, from local; copy the `DATABASE_URL` value that have been auto generated on railway, and add to your `.env`
+The Medusa Next.js Starter is built with:
 
-### requirements
-- **postgres database** (will be automatically generated if using railway template)
-- **redis** (will be automatically generated if using railway template)
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Medusa](https://medusajs.com/)
 
-### commands
-`cd backend/`
-`npm run build` or `yarn build` will compile app.
-`npm run start` or `yarn start` will start the backend server, needed for the storefront
-`npm run dev` or `yarn dev` will start backend (and admin dasboard frontend) - in development mode
+Features include:
 
-# /storefront
+- Full ecommerce support:
+  - Product Detail Page
+  - Product Overview Page
+  - Product Collections
+  - Cart
+  - Checkout with Stripe
+  - User Accounts
+  - Order Details
+- Full Next.js 15 support:
+  - App Router
+  - Next fetching/caching
+  - Server Components
+  - Server Actions
+  - Streaming
+  - Static Pre-Rendering
 
-### local setup
-Video instructions: https://youtu.be/PPxenu7IjGM
+# Quickstart
 
-intall dependencies `npm i` or `yarn`
-Rename `.env.local.template` ->  `.env.local`
+### Setting up the environment variables
 
-### requirements
-- running backend `npm run start` - needed to fetch products data and more, to build nextjs pages.
+Navigate into your projects directory and get your environment variables ready:
 
-### commands
-`cd storefront/`
-`npm run build` or `yarn build` will build the nextjs app - remember to start backend app prior to running this command.
-`npm run start` or `yarn start` will serve the frontend web shop.
-`npm run dev` or `yarn dev` will run on uncompiled code, and hot-reload as files saved with changes
+```shell
+cd nextjs-starter-medusa/
+mv .env.template .env.local
+```
 
-## Useful resources
-- How to setup credit card payment with Stripe payment module: https://youtu.be/dcSOpIzc1Og
-- https://funkyton.com/medusajs-2-0-is-finally-here/#succuessfully-deployed-whats-next
+### Install dependencies
+
+Use Yarn to install all dependencies.
+
+```shell
+yarn
+```
+
+### Start developing
+
+You are now ready to start up your project.
+
+```shell
+yarn dev
+```
+
+### Open the code and start customizing
+
+Your site is now running at http://localhost:8000!
+
+# Payment integrations
+
+By default this starter supports the following payment integrations
+
+- [Stripe](https://stripe.com/)
+
+To enable the integrations you need to add the following to your `.env.local` file:
+
+```shell
+NEXT_PUBLIC_STRIPE_KEY=<your-stripe-public-key>
+```
+
+You'll also need to setup the integrations in your Medusa server. See the [Medusa documentation](https://docs.medusajs.com) for more information on how to configure [Stripe](https://docs.medusajs.com/resources/commerce-modules/payment/payment-provider/stripe#main).
+
+# Resources
+
+## Learn more about Medusa
+
+- [Website](https://www.medusajs.com/)
+- [GitHub](https://github.com/medusajs)
+- [Documentation](https://docs.medusajs.com/)
+
+## Learn more about Next.js
+
+- [Website](https://nextjs.org/)
+- [GitHub](https://github.com/vercel/next.js)
+- [Documentation](https://nextjs.org/docs)
