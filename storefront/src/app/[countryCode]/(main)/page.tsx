@@ -1,3 +1,5 @@
+export const revalidate = 0
+export const fetchCache = "force-no-store"
 export const dynamic = "force-dynamic"
 import { Metadata } from "next"
 
@@ -33,6 +35,7 @@ export default async function Home(props: {
     "pcol_01JPM9MGTP3SGWCX615701TPXQ",
     {
       cache: "no-store",
+      next: { revalidate: 0 },
     }
   )
 
@@ -43,6 +46,7 @@ export default async function Home(props: {
     const { collections: allCollections } = await listCollections({
       fields: "id, handle, title",
       cache: "no-store",
+      next: { revalidate: 0 },
     })
     collections = allCollections
   }
