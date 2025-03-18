@@ -22,18 +22,20 @@ export default async function paymentSucceededHandler({
   });
 
   // Vérifier si le client existe déjà
-  if (!order.customer) {
+  if (!order.customer_id) {
     // Générer un mot de passe aléatoire
     const password = generatePassword();
 
     try {
       // Créer le compte client
-      const customer = await userModuleService.createCustomer({
-        email: order.email,
-        first_name: order.shipping_address?.first_name || "",
-        last_name: order.shipping_address?.last_name || "",
-        password: password,
-      });
+      const [customer] = await userModuleService.createUsers([
+        {
+          email: order.email,
+          first_name: order.shipping_address?.first_name || "",
+          last_name: order.shipping_address?.last_name || "",
+          password_hash: password,
+        },
+      ]);
 
       // Envoyer l'email avec les identifiants
       await notificationModuleService.createNotifications({
