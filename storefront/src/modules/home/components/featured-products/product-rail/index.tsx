@@ -20,8 +20,8 @@ export default async function ProductRail({
     regionId: region.id,
     queryParams: {
       fields: "*variants.calculated_price",
-      collection_id: collection.id,
-    },
+      collection_id: [collection.id],
+    } as any,
   })
 
   console.log("Nombre total de produits:", pricedProducts.length)
