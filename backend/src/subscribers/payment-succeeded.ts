@@ -27,14 +27,14 @@ export default async function paymentSucceededHandler({
     const password = generatePassword();
 
     try {
-      // Créer le compte client
+      // Créer le compte client avec type assertion
       const [customer] = await userModuleService.createUsers([
         {
           email: order.email,
           first_name: order.shipping_address?.first_name || "",
           last_name: order.shipping_address?.last_name || "",
-          password_hash: password,
-        },
+          password: password,
+        } as any,
       ]);
 
       // Envoyer l'email avec les identifiants
