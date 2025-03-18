@@ -1,41 +1,50 @@
-import { ReactNode } from 'react'
-import { MedusaError } from '@medusajs/framework/utils'
-import { InviteUserEmail, INVITE_USER, isInviteUserData } from './invite-user'
-import { OrderPlacedTemplate, ORDER_PLACED, isOrderPlacedTemplateData } from './order-placed'
+import { MedusaError } from "@medusajs/framework/utils";
+import { ReactNode } from "react";
+import { AccountCreatedTemplate } from "./account-created";
+import { InviteUserEmail, isInviteUserData } from "./invite-user";
+import { OrderPlacedTemplate, isOrderPlacedTemplateData } from "./order-placed";
 
-export const EmailTemplates = {
-  INVITE_USER,
-  ORDER_PLACED
-} as const
+export enum EmailTemplates {
+  INVITE_USER = "invite-user",
+  ORDER_PLACED = "order-placed",
+  ACCOUNT_CREATED = "account-created",
+}
 
-export type EmailTemplateType = keyof typeof EmailTemplates
-
-export function generateEmailTemplate(templateKey: string, data: unknown): ReactNode {
+export function generateEmailTemplate(
+  templateKey: string,
+  data: unknown
+): ReactNode {
   switch (templateKey) {
     case EmailTemplates.INVITE_USER:
       if (!isInviteUserData(data)) {
         throw new MedusaError(
           MedusaError.Types.INVALID_DATA,
           `Invalid data for template "${EmailTemplates.INVITE_USER}"`
-        )
+        );
       }
-      return <InviteUserEmail {...data} />
-
+      return <InviteUserEmail {...data} />;
     case EmailTemplates.ORDER_PLACED:
       if (!isOrderPlacedTemplateData(data)) {
         throw new MedusaError(
           MedusaError.Types.INVALID_DATA,
           `Invalid data for template "${EmailTemplates.ORDER_PLACED}"`
-        )
+        );
       }
-      return <OrderPlacedTemplate {...data} />
-
+      return <OrderPlacedTemplate {...data} />;
+    case EmailTemplates.ACCOUNT_CREATED:
+      if (!isAccountCreatedTemplateData(data)) {
+        throw new MedusaError(
+          MedusaError.Types.INVALID_DATA,
+          `Invalid data for template "${EmailTemplates.ACCOUNT_CREATED}"`
+        );
+      }
+      return <AccountCreatedTemplate {...data} />;
     default:
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
         `Unknown template key: "${templateKey}"`
-      )
+      );
   }
 }
 
-export { InviteUserEmail, OrderPlacedTemplate }
+export { AccountCreatedTemplate, InviteUserEmail, OrderPlacedTemplate };
