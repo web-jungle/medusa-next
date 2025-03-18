@@ -7,12 +7,12 @@ import { SubscriberArgs, SubscriberConfig } from "@medusajs/medusa";
 import { generatePassword } from "../lib/util";
 import { EmailTemplates } from "../modules/email-notifications/templates";
 
-export default async function paymentSucceededHandler({
+export default async function checkoutCompletedHandler({
   event: { data },
   container,
 }: SubscriberArgs<any>) {
   console.log(
-    "🔍 WEBHOOK DÉCLENCHÉ : payment.succeeded",
+    "🔍 WEBHOOK DÉCLENCHÉ : checkout.completed",
     JSON.stringify(data, null, 2)
   );
 
@@ -26,13 +26,18 @@ export default async function paymentSucceededHandler({
 
     console.log("🔍 MODULES RÉSOLUS");
 
+    if (!data.order_id) {
+      console.log("❌ PAS D'ID DE COMMANDE DANS L'ÉVÉNEMENT");
+      return;
+    }
+
     // Récupérer la commande
     const order = await orderModuleService.retrieveOrder(data.order_id, {
       relations: ["customer"],
     });
 
     console.log(
-      `🔍 COMMANDE RÉCUPÉRÉE : ${order.id}, Email: ${order.email}, Customer ID: ${order.customer_id}`
+      `🔍 CHECKOUT COMPLÉTÉ : ${order.id}, Email: ${order.email}, Customer ID: ${order.customer_id}`
     );
 
     // Vérifier si le client existe déjà
@@ -85,5 +90,5 @@ export default async function paymentSucceededHandler({
 }
 
 export const config: SubscriberConfig = {
-  event: ["payment.succeeded"],
+  event: ["checkout.completed"],
 };
