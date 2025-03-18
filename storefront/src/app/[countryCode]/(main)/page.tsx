@@ -26,7 +26,7 @@ export default async function Home(props: {
   const { countryCode } = params
 
   const region = await getRegion(countryCode)
-
+  console.log("region", region)
   // Récupérer les articles mis en avant pour la page d'accueil
   const featuredArticles = getHomePagePosts()
 
