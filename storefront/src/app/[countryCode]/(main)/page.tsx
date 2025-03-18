@@ -1,6 +1,3 @@
-export const revalidate = 0
-export const fetchCache = "force-no-store"
-export const dynamic = "force-dynamic"
 import { Metadata } from "next"
 
 import { listCollections, retrieveCollection } from "@lib/data/collections"
@@ -37,10 +34,7 @@ export default async function Home(props: {
   if (collection) {
     collections = [collection]
   } else {
-    const { collections: allCollections } = await listCollections({
-      fields: "id, handle, title",
-      cache: "no-store",
-    })
+    const { collections: allCollections } = await listCollections()
     collections = allCollections
   }
 
