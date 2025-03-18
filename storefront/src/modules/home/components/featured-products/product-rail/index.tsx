@@ -29,6 +29,8 @@ export default async function ProductRail({
   )
 
   if (!collectionProducts.length) {
+    console.log("collectionProducts.length, il y a rien")
+
     return null
   }
 
