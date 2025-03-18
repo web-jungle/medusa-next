@@ -3,6 +3,7 @@ import { Metadata } from "next"
 import { listCollections, retrieveCollection } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import { getHomePagePosts } from "@lib/mdx"
+import { HttpTypes } from "@medusajs/types"
 import FeaturedArticles from "@modules/home/components/featured-articles"
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
@@ -23,19 +24,20 @@ export default async function Home(props: {
   const { countryCode } = params
 
   const region = await getRegion(countryCode)
-  console.log("region", region)
+
   // Récupérer les articles mis en avant pour la page d'accueil
   const featuredArticles = getHomePagePosts()
 
-  // Récupérer uniquement la collection spécifique demandée
+  // Récupérer uniquement la collection spécifique demandée avec revalidation à 0
   const collection = await retrieveCollection("pcol_01JPM9MGTP3SGWCX615701TPXQ")
-  console.log("collection", collection)
-  let collections = []
+
+  let collections: HttpTypes.StoreCollection[] = []
   if (collection) {
     collections = [collection]
   } else {
-    const { collections: allCollections } = await listCollections()
-    collections = allCollections
+    // Si la collection spécifique n'est pas trouvée, récupérer toutes les collections
+    const result = await listCollections()
+    collections = result.collections
   }
 
   if (!collections.length || !region) {
