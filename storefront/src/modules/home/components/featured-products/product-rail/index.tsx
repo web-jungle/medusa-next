@@ -1,10 +1,11 @@
 import { listProducts } from "@lib/data/products"
 import { HttpTypes } from "@medusajs/types"
 import { Text } from "@medusajs/ui"
-import { revalidatePath } from "next/cache"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
 import ProductPreview from "@modules/products/components/product-preview"
+
+export const dynamic = "force-dynamic" // Force le rendu dynamique
 
 export default async function ProductRail({
   collection,
@@ -15,9 +16,6 @@ export default async function ProductRail({
   region: HttpTypes.StoreRegion
   isHome: boolean
 }) {
-  // Forcer la revalidation de la page
-  revalidatePath("/")
-
   const {
     response: { products: pricedProducts },
   } = await listProducts({
@@ -26,6 +24,7 @@ export default async function ProductRail({
       fields: "*variants.calculated_price",
       collection_id: [collection.id],
     } as any,
+    revalidate: 0, // Désactive le cache
   })
 
   console.log("Nombre total de produits:", pricedProducts.length)
@@ -42,7 +41,6 @@ export default async function ProductRail({
 
   if (!collectionProducts.length) {
     console.log("collectionProducts.length, il y a rien")
-
     return null
   }
 
