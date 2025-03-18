@@ -48,7 +48,7 @@ export default async function Home(props: {
   return (
     <div className="bg-zen-bg min-h-screen">
       <Hero />
-      <div className="py-12 bg-zen-white">
+      <div id="collections" className="py-12 bg-zen-white">
         <h2 className="text-2xl text-zen-textDark font-medium text-center ">
           Articles les plus vendus
         </h2>

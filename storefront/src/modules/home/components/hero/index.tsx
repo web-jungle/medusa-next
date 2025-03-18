@@ -1,5 +1,6 @@
 import { Button, Heading } from "@medusajs/ui"
 import Image from "next/image"
+import Link from "next/link"
 
 const Hero = () => {
   return (
@@ -40,15 +41,17 @@ const Hero = () => {
           <p className="mt-6 text-zen-bordeaux md:text-2xl  mx-auto">
             Notre collection de vêtements innovants vous offre une protection
             contre les ondes 5G, WiFi et autres rayonnements électromagnétiques,
-            pour un mode de vie plus sain et équilibré.
+            pour un mode de vie plus sain.
           </p>
         </span>
-        <Button
-          variant="secondary"
-          className="bg-zen-bordeaux hover:bg-zen-charcoal text-white border-none mt-6"
-        >
-          Découvrir nos produits
-        </Button>
+        <Link href="#collections">
+          <Button
+            variant="secondary"
+            className="bg-zen-bordeaux hover:bg-zen-charcoal text-white border-none mt-6"
+          >
+            Découvrir nos produits
+          </Button>
+        </Link>
       </div>
     </div>
   )
