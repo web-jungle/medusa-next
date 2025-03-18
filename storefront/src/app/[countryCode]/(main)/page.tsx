@@ -57,6 +57,7 @@ export default async function Home(props: {
           Articles les plus vendus
         </h2>
         <ul className="flex flex-col gap-x-6">
+          eeeeeeeeeeeeeeeeeeeeeeeeeee
           <FeaturedProducts
             collections={collections}
             region={region}
