@@ -32,7 +32,7 @@ export default async function Home(props: {
 
   // Récupérer uniquement la collection spécifique demandée
   const collection = await retrieveCollection("pcol_01JPM9MGTP3SGWCX615701TPXQ")
-
+  console.log("collection", collection)
   let collections = []
   if (collection) {
     collections = [collection]
@@ -57,7 +57,6 @@ export default async function Home(props: {
           Articles les plus vendus
         </h2>
         <ul className="flex flex-col gap-x-6">
-          eeeeeeeeeeeeeeeeeeeeeeeeeee
           <FeaturedProducts
             collections={collections}
             region={region}
