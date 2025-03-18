@@ -35,7 +35,6 @@ export default async function Home(props: {
     "pcol_01JPM9MGTP3SGWCX615701TPXQ",
     {
       cache: "no-store",
-      next: { revalidate: 0 },
     }
   )
 

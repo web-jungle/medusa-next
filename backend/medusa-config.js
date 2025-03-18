@@ -85,15 +85,15 @@ const medusaConfig = {
               redisUrl: REDIS_URL,
             },
           },
-          {
-            key: Modules.WORKFLOW_ENGINE,
-            resolve: "@medusajs/workflow-engine-redis",
-            options: {
-              redis: {
-                url: REDIS_URL,
-              },
-            },
-          },
+          // {
+          //   key: Modules.WORKFLOW_ENGINE,
+          //   resolve: "@medusajs/workflow-engine-redis",
+          //   options: {
+          //     redis: {
+          //       url: REDIS_URL,
+          //     },
+          //   },
+          // },
         ]
       : []),
     ...((SENDGRID_API_KEY && SENDGRID_FROM_EMAIL) ||
