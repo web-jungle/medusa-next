@@ -26,7 +26,15 @@ export default async function ProductPreview({
   const { cheapestPrice } = getProductPrice({
     product,
   })
+  const sentence = [
+    "Protection anti-ondes de haute qualité",
+    "Nos vêtements sont protégés contre les ondes électromagnétiques pour un mode de vie plus sain.",
+    "Protégez votre corps contre les ondes électromagnétiques avec nos vêtements de protection anti-ondes.",
+  ]
 
+  const randomIndex = Math.floor(Math.random() * sentence.length)
+
+  const sentences = sentence[randomIndex]
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
       <div
@@ -51,9 +59,7 @@ export default async function ProductPreview({
           >
             {product.title}
           </Text>
-          <p className="text-ui-fg-subtle text-xs line-clamp-2">
-            Protection efficace contre les ondes électromagnétiques
-          </p>
+          <p className="text-ui-fg-subtle text-xs line-clamp-2">{sentences}</p>
           <div className="flex items-center gap-x-2 mt-2">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>
