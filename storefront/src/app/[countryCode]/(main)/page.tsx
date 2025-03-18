@@ -29,7 +29,12 @@ export default async function Home(props: {
   const featuredArticles = getHomePagePosts()
 
   // Récupérer uniquement la collection spécifique demandée
-  const collection = await retrieveCollection("pcol_01JPM9MGTP3SGWCX615701TPXQ")
+  const collection = await retrieveCollection(
+    "pcol_01JPM9MGTP3SGWCX615701TPXQ",
+    {
+      cache: "no-store",
+    }
+  )
 
   let collections = []
   if (collection) {
@@ -37,6 +42,7 @@ export default async function Home(props: {
   } else {
     const { collections: allCollections } = await listCollections({
       fields: "id, handle, title",
+      cache: "no-store",
     })
     collections = allCollections
   }
