@@ -28,7 +28,7 @@ export default async function Home(props: {
   const featuredArticles = getHomePagePosts()
 
   // Récupérer uniquement la collection spécifique demandée
-  const collection = await retrieveCollection("pcol_01JPK31E045GVJ9Q3XES13NV7Q")
+  const collection = await retrieveCollection("pcol_01JPM9MGTP3SGWCX615701TPXQ")
 
   let collections = []
   if (collection) {
