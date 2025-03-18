@@ -20,8 +20,16 @@ export default async function ProductRail({
     regionId: region.id,
     queryParams: {
       fields: "*variants.calculated_price",
+      collection_id: collection.id,
     },
   })
+
+  console.log("Nombre total de produits:", pricedProducts.length)
+  console.log("ID de la collection:", collection.id)
+  console.log(
+    "Produits avec collection_id:",
+    pricedProducts.map((p) => ({ id: p.id, collection_id: p.collection_id }))
+  )
 
   // Filtrer manuellement pour n'obtenir que les produits de la collection
   const collectionProducts = pricedProducts.filter(
