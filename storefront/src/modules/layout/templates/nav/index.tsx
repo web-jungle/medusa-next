@@ -35,13 +35,6 @@ export default async function Nav() {
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
-              <LocalizedClientLink
-                className="hover:text-zen-green text-zen-darkGreen"
-                href="/collections/all"
-                data-testid="nav-collections-link"
-              >
-                Collections
-              </LocalizedClientLink>
               <a
                 className="hover:text-zen-green text-zen-darkGreen"
                 href="/fr/blog"
