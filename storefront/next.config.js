@@ -20,6 +20,17 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
+      //allow local images
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
+      //allow medusa images
+      {
+        protocol: "https",
+        hostname: "*",
+      },
+      //allow medusa images
       {
         protocol: "http",
         hostname: "localhost",
