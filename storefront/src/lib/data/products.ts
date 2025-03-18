@@ -71,7 +71,7 @@ export const listProducts = async ({
         headers,
         next: {
           ...next,
-          revalidate: revalidate === 0 ? 0 : 3600, // 0 pour pas de cache, 1 heure par défaut
+          revalidate: revalidate === 0 ? 0 : 60, // Réduire à 60 secondes au lieu de 3600 (1 heure)
         },
       }
     )

@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic"
 import { listProducts } from "@lib/data/products"
 import { getRegion, listRegions } from "@lib/data/regions"
 import ProductTemplate from "@modules/products/templates"
@@ -54,7 +53,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   const product = await listProducts({
     countryCode: params.countryCode,
-    queryParams: { handle },
+    queryParams: { handle } as any,
+    revalidate: 0,
   }).then(({ response }) => response.products[0])
 
   if (!product) {
@@ -82,7 +82,8 @@ export default async function ProductPage(props: Props) {
 
   const pricedProduct = await listProducts({
     countryCode: params.countryCode,
-    queryParams: { handle: params.handle },
+    queryParams: { handle: params.handle } as any,
+    revalidate: 0,
   }).then(({ response }) => response.products[0])
 
   if (!pricedProduct) {
